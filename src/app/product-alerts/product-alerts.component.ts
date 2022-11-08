@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../products';
 
 @Component({
@@ -10,7 +10,9 @@ export class ProductAlertsComponent implements OnInit {
   constructor() {}
 
   @Input()
-  product!: Product;
+  product: Product | undefined;
+  @Output()
+  notify = new EventEmitter();
 
   ngOnInit(): void {}
 }
@@ -21,4 +23,7 @@ export class ProductAlertsComponent implements OnInit {
 3. templateUrl & styleUrls - reference the component's HTML and CSS.
 4. ProductAlertsComponent - CLASS DEFINITION - define a property named product with an @Input() decorator.
 5. @Input() - IMPUT DECORATOR - indicates that the property value passes in from the component's parent, ProductListComponent.
+6. OnInit - INTERFACE
+7. ngOnInit() - METHOD
+8. @Output() - OUTPUT DECORATOR
 */

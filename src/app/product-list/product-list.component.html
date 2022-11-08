@@ -1,7 +1,22 @@
 <h2>Products</h2>
 
+<div *ngFor="let product of products">
+  <h3>
+    <a [title]="product.name + ' details'">{{ product.name }}</a>
+  </h3>
+  <p *ngIf="product.description">
+    Product description: {{ product.description }}
+  </p>
+  <button type="button" (click)="share()">Share</button>
+</div>
 
 <!-- 
+  NOTES:
+  1. *ngFor - STRUCTURAL DIRECTIVE - for loop -Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating elements. For more information about structural directives.
+  2. {{ }} - INTERPOLATION - lets you render the property value as text.
+  3. [ ] - PROPERTY BINDING - lets you use the property value in a template expression.
+  4. *ngIf - DIRECTIVE
+
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license

@@ -7,10 +7,10 @@ import { Product } from './products';
 export class CartService {
   constructor() {}
 
-  item: Product[] = [];
+  items: Product[] = [];
 
   addToCart(product: Product) {
-    this.item.push(product);
+    this.items.push(product);
   }
 
   getItems() {
@@ -18,7 +18,7 @@ export class CartService {
   }
 
   clearCart() {
-    this.item = [];
-    return this.item;
+    this.items = [];
+    return this.items;
   }
 }

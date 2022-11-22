@@ -15,9 +15,13 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
+      { path: '', title: 'Home', component: ProductListComponent },
+      {
+        path: 'products/:productId',
+        title: 'Product Details',
+        component: ProductDetailsComponent,
+      },
+      { path: 'cart', title: 'Cart', component: CartComponent },
     ]),
   ],
   declarations: [

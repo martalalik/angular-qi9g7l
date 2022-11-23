@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,8 +10,13 @@ import { Product, products } from '../products';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private cartServise: CartService
+  ) {}
+
   product: Product | undefined;
-  constructor(private route: ActivatedRoute) {}
+
   ngOnInit(): void {
     // First get the product id from the current route.
     const routePrams = this.route.snapshot.paramMap;
@@ -20,6 +26,12 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(
       (product) => product.id === productIdFromRoute
     );
+  }
+
+  // Adding item to a cart
+  addToCart(product: Product) {
+    this.cartServise.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 }
 
